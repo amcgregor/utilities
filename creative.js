@@ -65,7 +65,7 @@
 		var item = feed.entries[Math.floor(Math.random()*feed.entries.length)],
 			tags = item.categories[0].split(' ');
 		
-		localStorage.setItem("feed", feed);
+		localStorage.setItem("feed", JSON.stringify(feed));
 		
 		$('h1').text(item.title);
 		$("h1").fitText(
@@ -99,8 +99,8 @@
 		$('.spinner').removeClass('hidden');
 		
 		window.setTimeout(function(){
-			if ( localStorage.feed ) {
-				goSomewhere(localStorage.feed);
+			if ( localStorage.feed && localStorage.feed !== '[object Object]' ) {
+				goSomewhere(JSON.parse(localStorage.feed));
 			} else {
 				parseRSS(srcUrl, goSomewhere);
 			}
