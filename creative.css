@@ -504,6 +504,6 @@ body {
 
 
 .progress { display: inline-block; float: right; margin-top: 15px; margin-right: 15px; width: 50%; }
-#pb { width: 100%; transition: width 2s linear; -webkit-transition: width 2s linear; -moz-transition: width 2s linear; -o-transition: width 2s linear; }
+#pb { width: 100%; transition: width 5s linear; -webkit-transition: width 5s linear; -moz-transition: width 5s linear; -o-transition: width 5s linear; }
 #pb.progress-bar-success { width: 0%; }
 
