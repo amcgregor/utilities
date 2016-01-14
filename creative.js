@@ -72,9 +72,15 @@
 		for ( var i = 0; i < tags.length; i++ ) {
 			$('#tags').append('<li><i class="fa fa-tag"></i> ' + tags[i] + '</li>');
 		}
+		
+		window.open(item.link);
+		
+		$('.btn.wow').addClass('pulse').removeClass('disabled');
+		$('#letsgo').removeClass('hidden').text("Try again?");
+		$('.spinner').addClass('hidden');
 	}
 	
-	$('.btn.wow:not(.disabled)').on('click', function(){
+	$("body").on('click', '.btn.wow:not(.disabled)', function(){
 		$(this).removeClass('pulse').addClass('disabled');
 		$('#letsgo').addClass('hidden');
 		$('.spinner').removeClass('hidden');
