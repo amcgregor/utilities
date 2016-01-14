@@ -48,11 +48,12 @@
 	
 	// Custom additions by Alice Bevan-McGregor below here.
 	
-	var srcUrl = 'http://feeds.pinboard.in/rss/secret:17da1479315fc23e3174/u:amcgregor/t:utility/';
+	var srcUrl = 'http://feeds.pinboard.in/rss/secret:17da1479315fc23e3174/u:amcgregor/t:utility/',
+		browserTab = null;
 	
 	function parseRSS(url, callback) {
 		$.ajax({
-			url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&callback=?&q=' + encodeURIComponent(url),
+			url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(url),
 			dataType: 'json',
 			success: function(data) {
 				callback(data.responseData.feed);
@@ -73,7 +74,7 @@
 			$('#tags').append('<li><i class="fa fa-tag"></i> <a href="https://pinboard.in/u:amcgregor/t:' + encodeURIComponent(tags[i]) + '/">' + tags[i] + '</a></li>');
 		}
 		
-		window.open(item.link);
+		browserTab.location = item.link;
 		
 		$('.btn.wow').addClass('pulse').removeClass('disabled');
 		$('#letsgo').removeClass('hidden').text("Try again?");
@@ -85,6 +86,7 @@
 		$('#letsgo').addClass('hidden');
 		$('.spinner').removeClass('hidden');
 		parseRSS(srcUrl, goSomewhere);
+		browserTab = window.open("./loading.html", "usefulsite");
 	});
 
 })(jQuery); // End of use strict
