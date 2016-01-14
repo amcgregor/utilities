@@ -33,11 +33,24 @@
 		<header>
 			<div class="header-content" >
 				<div class="header-content-inner">
-					<h1>Loading</h1>
-					<hr>
-					<p><i class="fa fa-5x fa-cog fa-spin"></i></p>
+					<h1 id="title">Loading</h1>
+					<p id="blurb"></p>
+					<p id="loader"><i class="fa fa-5x fa-cog fa-spin"></i></p>
+					<ul id="tags" class="list-inline"></ul>
 				</div>
 		</header>
 		
+		<script>
+			window.setInfo = function(title, description, tags) {
+				var tt = document.getElementById('title'),
+					bt = document.getElementById('blurb'),
+					l = document.getElementById('loader'),
+					t = document.getElementById('tags');
+				
+				tt.innerText = title;
+				bt.innerText = description;
+				t.innerHTML = tags;
+			}
+		</script>
 	</body>
 </html>

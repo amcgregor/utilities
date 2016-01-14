@@ -54,7 +54,7 @@
 	
 	function parseRSS(url, callback) {
 		$.ajax({
-			url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(url),
+			url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(url + '/'),
 			dataType: 'json',
 			success: function(data) {
 				callback(data.responseData.feed);
@@ -83,7 +83,9 @@
 		
 		window.setTimeout(function(){
 			browserTab.location = item.link;
-		}, 200)
+		}, 1000);
+		
+		browserTab.setInfo(item.title, item.content);
 		
 		$('.btn.wow').addClass('pulse').removeClass('disabled');
 		$('#letsgo').removeClass('hidden').text("Try again?");
@@ -95,12 +97,13 @@
 		$('#letsgo').addClass('hidden');
 		$('.spinner').removeClass('hidden');
 		
-		if ( feed === null ) {
-			parseRSS(srcUrl, goSomewhere);
-		} else {
-			goSomewhere(feed);
-		}
-		
+		window.setTimeout(function(){
+			if ( feed === null ) {
+				parseRSS(srcUrl, goSomewhere);
+			} else {
+				goSomewhere(feed);
+			}
+		}, 100);
 		
 		browserTab = window.open("./loading.html", "usefulsite");
 	});
