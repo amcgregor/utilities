@@ -81,7 +81,9 @@
 			$('#tags').append('<li><i class="fa fa-tag"></i> <a href="https://pinboard.in/u:amcgregor/t:' + encodeURIComponent(tags[i]) + '/">' + tags[i] + '</a></li>');
 		}
 		
-		browserTab.location = item.link;
+		window.setTimeout(function(){
+			browserTab.location = item.link;
+		}, 200)
 		
 		$('.btn.wow').addClass('pulse').removeClass('disabled');
 		$('#letsgo').removeClass('hidden').text("Try again?");
