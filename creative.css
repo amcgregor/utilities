@@ -501,3 +501,9 @@ body {
 
 
 #blurb { color: rgba(255, 255, 255, 0.85); font-weight: 400; }
+
+
+.progress { display: inline-block; float: right; margin-top: 15px; margin-right: 15px; width: 50%; }
+#pb { width: 100%; transition: width 1s linear; -webkit-transition: width 1s linear; -moz-transition: width 1s linear; -o-transition: width 1s linear; }
+#pb.progress-bar-success { width: 0%; }
+

@@ -9,7 +9,7 @@
 		
 		<title>Loading</title>
 		
-		<link rel="stylesheet" href="http://cdn.jsdelivr.net/g/bootstrap@3.0.2(css/bootstrap.min.css),fontawesome@4.5.0" type="text/css">
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/g/bootstrap@3.3.6(css/bootstrap.min.css),fontawesome@4.5.0" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="./creative.css" type="text/css">
 		
@@ -24,6 +24,9 @@
 		
 		<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
+				<div class="progress">
+					<div id="pb" class="progress-bar progress-bar-striped active" role="progressbar">&nbsp;</div>
+				</div>
 				<div class="navbar-header">
 					<a class="navbar-brand page-scroll" href="#page-top">Alice's Favourite Utilities</a>
 				</div>
@@ -35,7 +38,6 @@
 				<div class="header-content-inner">
 					<h1 id="title">Loading</h1>
 					<p id="blurb"></p>
-					<p id="loader"><i class="fa fa-5x fa-cog fa-spin"></i></p>
 					<ul id="tags" class="list-inline"></ul>
 				</div>
 		</header>
@@ -44,13 +46,14 @@
 			window.setInfo = function(title, description, tags) {
 				var tt = document.getElementById('title'),
 					bt = document.getElementById('blurb'),
-					l = document.getElementById('loader'),
-					t = document.getElementById('tags');
+					t = document.getElementById('tags'),
+					pb = document.getElementById('pb');
 				
 				tt.innerText = title;
 				bt.innerText = description;
-				l.className = 'hidden';
 				t.innerHTML = tags;
+				pb.className = 'progress-bar progress-bar-success progress-bar-striped active';
+				
 			}
 		</script>
 	</body>
