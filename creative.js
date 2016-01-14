@@ -49,7 +49,8 @@
 	// Custom additions by Alice Bevan-McGregor below here.
 	
 	var srcUrl = 'http://feeds.pinboard.in/rss/secret:17da1479315fc23e3174/u:amcgregor/t:utility/',
-		browserTab = null;
+		browserTab = null,
+		feed = null;
 	
 	function parseRSS(url, callback) {
 		$.ajax({
@@ -66,6 +67,12 @@
 			tags = item.categories[0].split(' ');
 		
 		$('h1').text(item.title);
+		$("h1").fitText(
+			1.2, {
+				minFontSize: '35px',
+				maxFontSize: '65px'
+			}
+		);
 		$('#blurb').text(item.content);
 		
 		$('#tags').empty();
@@ -85,7 +92,14 @@
 		$(this).removeClass('pulse').addClass('disabled');
 		$('#letsgo').addClass('hidden');
 		$('.spinner').removeClass('hidden');
-		parseRSS(srcUrl, goSomewhere);
+		
+		if ( feed === null ) {
+			parseRSS(srcUrl, goSomewhere);
+		} else {
+			goSomewhere(feed);
+		}
+		
+		
 		browserTab = window.open("./loading.html", "usefulsite");
 	});
 
