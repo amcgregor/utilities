@@ -70,7 +70,7 @@
 		$('#tags').empty();
 		
 		for ( var i = 0; i < tags.length; i++ ) {
-			$('#tags').append('<li><i class="fa fa-tag"></i> ' + tags[i] + '</li>');
+			$('#tags').append('<li><i class="fa fa-tag"></i> <a href="https://pinboard.in/u:amcgregor/t:' + encodeURIComponent(tags[i]) + '/">' + tags[i] + '</a></li>');
 		}
 		
 		window.open(item.link);
