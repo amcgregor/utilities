@@ -86,7 +86,7 @@
 			browserTab.location = item.link;
 		}, 1000);
 		
-		browserTab.setInfo(item.title, item.content, $('#tags').innerHTML);
+		browserTab.setInfo(item.title, item.content, $('#tags').html());
 		
 		$('.btn.wow').addClass('pulse').removeClass('disabled');
 		$('#letsgo').removeClass('hidden').text("Try again?");
