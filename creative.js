@@ -84,7 +84,7 @@
 		
 		window.setTimeout(function(){
 			browserTab.location = item.link;
-		}, 1000);
+		}, 2500);
 		
 		browserTab.setInfo(item.title, item.content, $('#tags').html());
 		
