@@ -48,7 +48,7 @@
 	
 	// Custom additions by Alice Bevan-McGregor below here.
 	
-	var srcUrl = 'http://feeds.pinboard.in/rss/secret:17da1479315fc23e3174/u:amcgregor/t:utility/',
+	var srcUrl = 'http://feeds.pinboard.in/rss/u:amcgregor/t:utility/',
 		browserTab = null;
 	
 	function parseRSS(url, callback) {
