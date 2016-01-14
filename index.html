@@ -51,7 +51,7 @@
                 <h1>Take Me To A Useful Website</h1>
                 <hr>
 				<p>Click the button below to be taken to a random useful website.</p>				
-				<p><button class="btn btn-default btn-xl wow pulse infinite">Let's go!</button></p>
+				<p><button class="btn btn-default btn-xl wow pulse infinite"><span id="letsgo">Let's go!</span><span class="hidden spinner"></span><i class="fa fa-lg fa-circle-o-notch fa-spin"></i></button></p>
 				<p>Counters are so 1990.</p>
 			</div>
         
@@ -89,7 +89,12 @@
 			console.log(feed);
 		}
 		
-		$('.btn.wow').on('click', function(){ parseRSS(srcUrl, goSomewhere); });
+		$('.btn.wow:not(.disabled)').on('click', function(){
+			$(this).removeClass('pulse').addClass('disabled');
+			$('#letsgo').hide();
+			$('.spinner').show();
+			parseRSS(srcUrl, goSomewhere);
+		});
 		
 	});
 	</script>
